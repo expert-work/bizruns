@@ -9,6 +9,11 @@ import expenses from '../features/expenses/saga';
 import payments from '../features/payments/saga';
 import settings from '../features/settings/saga';
 import dictionaries from '../features/dictionaries/saga';
+import obd2s from '../features/obd2s/saga';
+import recall_lookups from '../features/recall_lookups/saga';
+import recall_lookup_makes from '../features/recall_lookup_makes/saga';
+import recall_lookup_models from '../features/recall_lookup_models/saga';
+import recall_lookup_components from '../features/recall_lookup_components/saga';
 
 import more from '../features/more/saga';
 import { ROUTES } from '../navigation/routes';
@@ -44,6 +49,11 @@ export default function* rootSaga() {
             payments(),
             settings(),
             dictionaries(),
+            obd2s(),
+            recall_lookup_components(),
+            recall_lookup_models(),
+            recall_lookup_makes(),
+            recall_lookups()
         ]);
     });
 }

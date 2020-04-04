@@ -1,83 +1,83 @@
 import {
-    GET_DICTIONARIES,
-    SET_DICTIONARIES,
-    CLEAR_DICTIONARIES,
-    GET_CREATE_DICTIONARY,
-    SET_CREATE_DICTIONARY,
-    DICTIONARIES_TRIGGER_SPINNER,
+    GET_OBD2S,
+    SET_OBD2S,
+    CLEAR_OBD2S,
+    GET_CREATE_OBD2,
+    SET_CREATE_OBD2,
+    OBD2S_TRIGGER_SPINNER,
     ADD_ITEM,
     GET_ITEMS,
     SET_ITEMS,
-    SET_DICTIONARY_ITEMS,
-    CREATE_DICTIONARY,
+    SET_OBD2_ITEMS,
+    CREATE_OBD2,
     EDIT_ITEM,
-    SET_EDIT_DICTIONARY_ITEMS,
+    SET_EDIT_OBD2_ITEMS,
     REMOVE_ITEM,
-    REMOVE_DICTIONARY_ITEM,
-    GET_EDIT_DICTIONARY,
-    SET_EDIT_DICTIONARY,
-    EDIT_DICTIONARY,
-    REMOVE_DICTIONARY_ITEMS,
-    CLEAR_DICTIONARY,
-    SET_DICTIONARY,
+    REMOVE_OBD2_ITEM,
+    GET_EDIT_OBD2,
+    SET_EDIT_OBD2,
+    EDIT_OBD2,
+    REMOVE_OBD2_ITEMS,
+    CLEAR_OBD2,
+    SET_OBD2,
     CONVERT_TO_INVOICE,
-    REMOVE_DICTIONARY,
-    REMOVE_FROM_DICTIONARIES,
-    CHANGE_DICTIONARY_STATUS,
+    REMOVE_OBD2,
+    REMOVE_FROM_OBD2S,
+    CHANGE_OBD2_STATUS,
 } from "../constants";
 
-export const getDictionaries = (payload = {}) => ({
-    type: GET_DICTIONARIES,
+export const getObd2s = (payload = {}) => ({
+    type: GET_OBD2S,
     payload,
 });
 
-export const setDictionaries = (payload = {}) => ({
-    type: SET_DICTIONARIES,
+export const setObd2s = (payload = {}) => ({
+    type: SET_OBD2S,
     payload,
 });
 
-export const clearDictionaries = (payload = {}) => ({
-    type: CLEAR_DICTIONARIES,
+export const clearObd2s = (payload = {}) => ({
+    type: CLEAR_OBD2S,
     payload,
 });
 
-export const clearDictionary = (payload = {}) => ({
-    type: CLEAR_DICTIONARY,
+export const clearObd2 = (payload = {}) => ({
+    type: CLEAR_OBD2,
     payload,
 });
 
-export const getCreateDictionary = (payload = {}) => ({
-    type: GET_CREATE_DICTIONARY,
+export const getCreateObd2 = (payload = {}) => ({
+    type: GET_CREATE_OBD2,
     payload,
 });
 
-export const getEditDictionary = (payload = {}) => ({
-    type: GET_EDIT_DICTIONARY,
+export const getEditObd2 = (payload = {}) => ({
+    type: GET_EDIT_OBD2,
     payload,
 });
 
-export const createDictionary = (payload = {}) => ({
-    type: CREATE_DICTIONARY,
+export const createObd2 = (payload = {}) => ({
+    type: CREATE_OBD2,
     payload,
 });
 
-export const detailDictionary = (payload = {}) => ({
-    type: EDIT_DICTIONARY,
+export const detailObd2 = (payload = {}) => ({
+    type: EDIT_OBD2,
     payload,
 });
 
-export const setDictionary = (payload = {}) => ({
-    type: SET_DICTIONARY,
+export const setObd2 = (payload = {}) => ({
+    type: SET_OBD2,
     payload,
 });
 
-export const setEditDictionary = (payload = {}) => ({
-    type: SET_EDIT_DICTIONARY,
+export const setEditObd2 = (payload = {}) => ({
+    type: SET_EDIT_OBD2,
     payload,
 });
 
-export const dictionaryTriggerSpinner = (payload) => ({
-    type: DICTIONARIES_TRIGGER_SPINNER,
+export const obd2TriggerSpinner = (payload) => ({
+    type: OBD2S_TRIGGER_SPINNER,
     payload,
 });
 
@@ -96,8 +96,8 @@ export const setItems = (payload = {}) => ({
     payload,
 });
 
-export const setDictionaryItems = (payload = {}) => ({
-    type: SET_DICTIONARY_ITEMS,
+export const setObd2Items = (payload = {}) => ({
+    type: SET_OBD2_ITEMS,
     payload,
 });
 
@@ -106,8 +106,8 @@ export const editItem = (payload = {}) => ({
     payload,
 });
 
-export const setEditDictionaryItem = (payload = {}) => ({
-    type: SET_EDIT_DICTIONARY_ITEMS,
+export const setEditObd2Item = (payload = {}) => ({
+    type: SET_EDIT_OBD2_ITEMS,
     payload,
 });
 
@@ -116,13 +116,13 @@ export const removeItem = (payload = {}) => ({
     payload,
 });
 
-export const removeDictionaryItem = (payload = {}) => ({
-    type: REMOVE_DICTIONARY_ITEM,
+export const removeObd2Item = (payload = {}) => ({
+    type: REMOVE_OBD2_ITEM,
     payload,
 });
 
-export const removeDictionaryItems = () => ({
-    type: REMOVE_DICTIONARY_ITEMS
+export const removeObd2Items = () => ({
+    type: REMOVE_OBD2_ITEMS
 });
 
 
@@ -131,18 +131,18 @@ export const convertToInvoice = (payload = {}) => ({
     payload,
 });
 
-export const removeDictionary = (payload = {}) => ({
-    type: REMOVE_DICTIONARY,
+export const removeObd2 = (payload = {}) => ({
+    type: REMOVE_OBD2,
     payload,
 });
 
-export const removeFromDictionaries = (payload = {}) => ({
-    type: REMOVE_FROM_DICTIONARIES,
+export const removeFromObd2s = (payload = {}) => ({
+    type: REMOVE_FROM_OBD2S,
     payload,
 });
 
-export const changeDictionaryStatus = (payload = {}) => ({
-    type: CHANGE_DICTIONARY_STATUS,
+export const changeObd2Status = (payload = {}) => ({
+    type: CHANGE_OBD2_STATUS,
     payload,
 });
 

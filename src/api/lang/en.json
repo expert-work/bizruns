@@ -29,6 +29,11 @@
         "settings": "Settings",
         "notifications": "Notification",
         "dictionaries":"Dictionary",
+        "obd2s":"OBD2 Code Search",
+        "recall_lookups":"Recall Lookups",
+        "recall_lookup_makes":"Recall Lookup Make",
+        "recall_lookup_models":"Recall Lookup Model",
+        "recall_lookup_components":"Total Recall",
         "setting": {
             "company": "Company Information",
             "account": "Account Settings",
@@ -49,7 +54,8 @@
         "taxesReport": "Taxes Report",
         "filter": "Filters",
         "back": "Back",
-        "detailDictionary":"Word Description"
+        "detailDictionary":"Word Description",
+        "detailObd2":"Word definition"
     },
     "tabNavigation": {
         "invoices": "Invoices",
@@ -233,11 +239,13 @@
     },
     "more": {
         "automotive_dictionary": "Automotive Dictionary",
+        "obd2":"OBD2 Code Lookup",
         "estimate": "Estimates",
         "items": "Items",
         "reports": "Reports",
         "settings": "Settings",
-        "logout": "Logout"
+        "logout": "Logout",
+        "recall_lookup":"Recall Lookups"
     },
     "categories": {
         "title": "Category Name",
@@ -342,9 +350,39 @@
             "ALL": "All Words",
             "BYLETTER": "Search By Letter"
             },
-
-
     },
+   "obd2s":{
+          "tabs": {
+            "GENERIC": "Search Generic",
+            "BYBRAND": "Search By Brand"
+            },
+    },
+  "recall_lookups":{
+          "tabs": {
+            "YEARS": "Years",
+            },
+    },
+
+  "recall_lookup_components":{
+          "tabs": {
+            "ALL": "Components",
+            },
+    },
+
+
+  "recall_lookup_makes":{
+          "tabs": {
+            "MAKE": "Make",
+            },
+    },
+
+  "recall_lookup_models":{
+          "tabs": {
+            "MODEL": "Model",
+            },
+    },
+
+
     "estimates": {
         "tabs": {
             "SENT": "Sent",

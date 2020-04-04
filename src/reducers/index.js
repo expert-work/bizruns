@@ -8,6 +8,12 @@ import more from '../features/more/reducers';
 import settings from '../features/settings/reducers';
 import expenses from '../features/expenses/reducers';
 import dictionaries from '../features/dictionaries/reducers';
+import obd2s from '../features/obd2s/reducers';
+import recall_lookups from '../features/recall_lookups/reducers';
+import recall_lookup_makes from '../features/recall_lookup_makes/reducers';
+import recall_lookup_models from '../features/recall_lookup_models/reducers';
+import recall_lookup_components from '../features/recall_lookup_components/reducers';
+
 
 import global from './global';
 import navigationData from "../navigation/reducers";
@@ -23,6 +29,11 @@ export default combineReducers({
     customers,
     more,
     dictionaries,
+    obd2s,
+    recall_lookups,
+    recall_lookup_makes,
+    recall_lookup_models,
+    recall_lookup_components,
     expenses,
     payments,
     navigationData,

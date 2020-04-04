@@ -1,81 +1,81 @@
 import {
-    SET_DICTIONARIES,
-    CLEAR_DICTIONARIES,
-    DICTIONARIES_TRIGGER_SPINNER,
-    GET_DICTIONARIES,
+    SET_OBD2S,
+    CLEAR_OBD2S,
+    OBD2S_TRIGGER_SPINNER,
+    GET_OBD2S,
     GET_ITEMS,
     SET_ITEMS,
-    SET_CREATE_DICTIONARY,
-    SET_DICTIONARY_ITEMS,
-    SET_EDIT_DICTIONARY_ITEMS,
-    REMOVE_DICTIONARY_ITEM,
-    SET_EDIT_DICTIONARY,
-    REMOVE_DICTIONARY_ITEMS,
-    CLEAR_DICTIONARY,
-    SET_DICTIONARY,
-    REMOVE_FROM_DICTIONARIES
+    SET_CREATE_OBD2,
+    SET_OBD2_ITEMS,
+    SET_EDIT_OBD2_ITEMS,
+    REMOVE_OBD2_ITEM,
+    SET_EDIT_OBD2,
+    REMOVE_OBD2_ITEMS,
+    CLEAR_OBD2,
+    SET_OBD2,
+    REMOVE_FROM_OBD2S
 } from "../constants";
 
 const initialState = {
-    dictionaries: [],
+    obd2s: [],
     items: [],
     errors: null,
     loading: {
-        dictionariesLoading: false,
+        obd2sLoading: false,
         itemsLoading: false,
-        dictionaryLoading: false,
+        obd2Loading: false,
         initEstimateLoading: false
     },
-    dictionaryData: {
-        dictionary: null,
-        dictionaryTemplates: [],
+    obd2Data: {
+        obd2: null,
+        obd2Templates: [],
         nextEstimateNumber: '',
     },
-    dictionaryItems: [],
+    obd2Items: [],
 };
 
-export default function dictionariesReducer(state = initialState, action) {
+export default function obd2sReducer(state = initialState, action) {
     const { payload, type } = action;
 
     switch (type) {
-        case SET_DICTIONARIES:
-            let { dictionaries, fresh, prepend } = payload;
+        case SET_OBD2S:
+            let { obd2s, fresh, prepend } = payload;
 
             if (prepend) {
-                return { ...state, dictionaries: [ ...dictionaries, ...state.dictionaries] };
+                return { ...state, obd2s: [ ...obd2s, ...state.obd2s] };
             }
 
             if (!fresh) {
-                return { ...state, dictionaries: [...state.dictionaries, ...dictionaries] };
+                return { ...state, obd2s: [...state.obd2s, ...obd2s] };
             }
 
-            return { ...state, dictionaries };
+            return { ...state, obd2s };
 
-        case CLEAR_DICTIONARIES:
-            return { ...state, dictionaries: [] };
+        case CLEAR_OBD2S:
+            return { ...state, obd2s: [] };
 
-        case CLEAR_DICTIONARY:
+        case CLEAR_OBD2:
             return {
                 ...state,
-                dictionaryItems: [],
+                obd2Items: [],
                 items: [],
-                dictionaryData: {
-                    dictionary: null,
-                    dictionaryTemplates: []
+                obd2Data: {
+                    obd2: null,
+                    obd2Templates: []
                 }
             };
 
-        case GET_DICTIONARIES:
+        case GET_OBD2S:
             return { ...state };
 
-        case SET_DICTIONARY:
+        case SET_OBD2:
 
-            return { ...state, dictionaryData: payload };
+            return { ...state, obd2Data: payload };
 
-        case SET_EDIT_DICTIONARY:
+        case SET_EDIT_OBD2:
             return { ...state, ...payload };
 
-        case DICTIONARIES_TRIGGER_SPINNER:
+        case OBD2S_TRIGGER_SPINNER:
             return { ...state, loading: { ...state.loading, ...payload } };
 
         case SET_ITEMS:
@@ -87,29 +87,29 @@ export default function dictionariesReducer(state = initialState, action) {
             }
             return { ...state, items };
 
-        case SET_DICTIONARY_ITEMS:
+        case SET_OBD2_ITEMS:
 
-            const { dictionaryItem } = payload;
+            const { obd2Item } = payload;
 
-            return { ...state, dictionaryItems: [...state.dictionaryItems, ...dictionaryItem] };
+            return { ...state, obd2Items: [...state.obd2Items, ...obd2Item] };
 
-        case REMOVE_DICTIONARY_ITEM:
+        case REMOVE_OBD2_ITEM:
 
             const { id } = payload;
 
-            const dictionaryItems = state.dictionaryItems.filter(val => (val.item_id || val.id) !== id)
+            const obd2Items = state.obd2Items.filter(val => (val.item_id || val.id) !== id)
 
-            return { ...state, dictionaryItems };
+            return { ...state, obd2Items };
 
-        case REMOVE_DICTIONARY_ITEMS:
+        case REMOVE_OBD2_ITEMS:
 
-            return { ...state, dictionaryItems: [] };
+            return { ...state, obd2Items: [] };
 
-        case REMOVE_FROM_DICTIONARIES:
+        case REMOVE_FROM_OBD2S:
 
-            const newEstimates = state.dictionaries.filter(val => val.id !== payload.id)
+            const newEstimates = state.obd2s.filter(val => val.id !== payload.id)
 
-            return { ...state, dictionaries: newEstimates };
+            return { ...state, obd2s: newEstimates };
 
         case GET_ITEMS:
             return { ...state };

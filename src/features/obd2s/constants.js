@@ -4,47 +4,47 @@ import { colors } from "../../styles/colors";
 
 //  Forms
 // -----------------------------------------
-export const DICTIONARY_SEARCH = 'dictionaryForm/DICTIONARY_SEARCH';
-export const DICTIONARY_FORM = 'dictionaryForm/DICTIONARY_DETAIL';
+export const OBD2_SEARCH = 'obd2Form/OBD2_SEARCH';
+export const OBD2_FORM = 'obd2Form/OBD2_DETAIL';
 export const ITEM_FORM = 'item/ITEM_FORM';
 
 // Type
 // -----------------------------------------
-export const DICTIONARY_ADD = 'dictionaryForm/DICTIONARY_ADD';
-export const DICTIONARY_DETAIL = 'dictionaryForm/DICTIONARY_DETAIL';
+export const OBD2_ADD = 'obd2Form/OBD2_ADD';
+export const OBD2_DETAIL = 'obd2Form/OBD2_DETAIL';
 
 // Actions
 // -----------------------------------------
-export const DICTIONARIES_TRIGGER_SPINNER = 'dictionary/DICTIONARIES_TRIGGER_SPINNER';
-export const GET_DICTIONARIES = 'dictionary/GET_DICTIONARIES';
-export const SET_DICTIONARIES = 'dictionary/SET_DICTIONARIES';
+export const OBD2S_TRIGGER_SPINNER = 'obd2/OBD2S_TRIGGER_SPINNER';
+export const GET_OBD2S = 'obd2/GET_OBD2S';
+export const SET_OBD2S = 'obd2/SET_OBD2S';
 
-export const CLEAR_DICTIONARIES = 'dictionary/CLEAR_DICTIONARIES';
-export const CLEAR_DICTIONARY = 'dictionary/CLEAR_DICTIONARY';
-export const GET_CREATE_DICTIONARY = 'dictionary/GET_CREATE_DICTIONARY';
-export const GET_EDIT_DICTIONARY = 'dictionary/GET_EDIT_DICTIONARY';
-export const SET_DICTIONARY = 'dictionary/SET_DICTIONARY';
-export const SET_EDIT_DICTIONARY = 'dictionary/SET_EDIT_DICTIONARY';
-export const CREATE_DICTIONARY = 'dictionary/CREATE_DICTIONARY';
-export const EDIT_DICTIONARY = 'dictionary/EDIT_DICTIONARY';
-export const CONVERT_TO_INVOICE = 'dictionary/CONVERT_TO_INVOICE';
-export const REMOVE_DICTIONARY = 'dictionary/REMOVE_DICTIONARY';
-export const REMOVE_FROM_DICTIONARIES = 'dictionary/REMOVE_FROM_DICTIONARIES';
-export const CHANGE_DICTIONARY_STATUS = 'dictionary/CHANGE_DICTIONARY_STATUS';
+export const CLEAR_OBD2S = 'obd2/CLEAR_OBD2S';
+export const CLEAR_OBD2 = 'obd2/CLEAR_OBD2';
+export const GET_CREATE_OBD2 = 'obd2/GET_CREATE_OBD2';
+export const GET_EDIT_OBD2 = 'obd2/GET_EDIT_OBD2';
+export const SET_OBD2 = 'obd2/SET_OBD2';
+export const SET_EDIT_OBD2 = 'obd2/SET_EDIT_OBD2';
+export const CREATE_OBD2 = 'obd2/CREATE_OBD2';
+export const EDIT_OBD2 = 'obd2/EDIT_OBD2';
+export const CONVERT_TO_INVOICE = 'obd2/CONVERT_TO_INVOICE';
+export const REMOVE_OBD2 = 'obd2/REMOVE_OBD2';
+export const REMOVE_FROM_OBD2S = 'obd2/REMOVE_FROM_OBD2S';
+export const CHANGE_OBD2_STATUS = 'obd2/CHANGE_OBD2_STATUS';
 
 // Items
 // -----------------------------------------
-export const SET_EDIT_DICTIONARY_ITEMS = 'dictionary/SET_EDIT_DICTIONARY_ITEMS';
-export const REMOVE_DICTIONARY_ITEM = 'dictionary/REMOVE_DICTIONARY_ITEM';
-export const REMOVE_DICTIONARY_ITEMS = 'dictionary/REMOVE_DICTIONARY_ITEMS';
-export const ADD_ITEM = 'dictionary/ADD_ITEM';
-export const EDIT_ITEM = 'dictionary/EDIT_ITEM';
-export const GET_ITEMS = 'dictionary/GET_ITEMS';
-export const SET_ITEMS = 'dictionary/SET_ITEMS';
-export const SET_DICTIONARY_ITEMS = 'dictionary/SET_DICTIONARY_ITEMS';
-export const REMOVE_ITEM = 'dictionary/REMOVE_ITEM';
-export const ITEM_ADD = 'dictionary/ITEM_ADD';
-export const ITEM_EDIT = 'dictionary/ITEM_EDIT';
+export const SET_EDIT_OBD2_ITEMS = 'obd2/SET_EDIT_OBD2_ITEMS';
+export const REMOVE_OBD2_ITEM = 'obd2/REMOVE_OBD2_ITEM';
+export const REMOVE_OBD2_ITEMS = 'obd2/REMOVE_OBD2_ITEMS';
+export const ADD_ITEM = 'obd2/ADD_ITEM';
+export const EDIT_ITEM = 'obd2/EDIT_ITEM';
+export const GET_ITEMS = 'obd2/GET_ITEMS';
+export const SET_ITEMS = 'obd2/SET_ITEMS';
+export const SET_OBD2_ITEMS = 'obd2/SET_OBD2_ITEMS';
+export const REMOVE_ITEM = 'obd2/REMOVE_ITEM';
+export const ITEM_ADD = 'obd2/ITEM_ADD';
+export const ITEM_EDIT = 'obd2/ITEM_EDIT';
 
 export const ITEM_DISCOUNT_OPTION = [
     {
@@ -62,7 +62,7 @@ export const ITEM_DISCOUNT_OPTION = [
 ];
 
 
-export const DICTIONARY_DISCOUNT_OPTION = [
+export const OBD2_DISCOUNT_OPTION = [
     {
         value: 'percentage',
         displayLabel: '%',
@@ -71,7 +71,7 @@ export const DICTIONARY_DISCOUNT_OPTION = [
 ];
 
 
-export const DICTIONARIES_STATUS_BG_COLOR = {
+export const OBD2S_STATUS_BG_COLOR = {
     DRAFT: colors.warningLight,
     SENT: colors.warningLight2,
     VIEWED: colors.infoLight,
@@ -80,7 +80,7 @@ export const DICTIONARIES_STATUS_BG_COLOR = {
     ACCEPTED: colors.successLight2,
 };
 
-export const DICTIONARIES_STATUS_TEXT_COLOR = {
+export const OBD2S_STATUS_TEXT_COLOR = {
     DRAFT: colors.warningDark,
     SENT: colors.warningDark2,
     VIEWED: colors.infoDark,
@@ -91,17 +91,17 @@ export const DICTIONARIES_STATUS_TEXT_COLOR = {
 
 
 export const TAB_NAME = (name, language, Lng) => {
-    return Lng.t(`dictionaries.tabs.${name}`, { locale: language })
+    return Lng.t(`obd2s.tabs.${name}`, { locale: language })
 };
 
-export const DICTIONARIES_TABS = {
-    ALL: 'ALL',
-    BYLETTER: 'BYLETTER',
+export const OBD2S_TABS = {
+    GENERIC: 'GENERIC',
+    BYBRAND: 'BYBRAND',
  };
 
 // Filter Estimate Mode
 // -----------------------------------------
-export const FILTER_DICTIONARY_STATUS = [
+export const FILTER_OBD2_STATUS = [
     { label: 'DRAFT', value: 'DRAFT' },
     { label: 'SENT', value: 'SENT' },
     { label: 'VIEWED', value: 'VIEWED' },
@@ -110,14 +110,14 @@ export const FILTER_DICTIONARY_STATUS = [
     { label: 'REJECTED', value: 'REJECTED' },
 ]
 
-export const DICTIONARIES_STATUS = {
+export const OBD2S_STATUS = {
     SENT: 'danger',
     DRAFT: 'warning',
     PAID: 'success',
 };
 
 
-export const DICTIONARY_ACTIONS = {
+export const OBD2_ACTIONS = {
     VIEW: 'download',
     SEND: 'send',
     DELETE: 'delete',
@@ -133,36 +133,36 @@ export const MARK_AS_ACCEPT = 'ACCEPTED'
 export const MARK_AS_REJECT = 'REJECTED'
 
 
-export const EDIT_DICTIONARY_ACTIONS = (language, markAs = '') => {
+export const EDIT_OBD2_ACTIONS = (language, markAs = '') => {
 
     const markAsSent = [{
-        label: Lng.t("dictionaries.actions.markAsSent", { locale: language }),
-        value: DICTIONARY_ACTIONS.MARK_AS_SENT
+        label: Lng.t("obd2s.actions.markAsSent", { locale: language }),
+        value: OBD2_ACTIONS.MARK_AS_SENT
     }]
 
     const markAsAccept = [{
-        label: Lng.t("dictionaries.actions.markAsAccepted", { locale: language }),
-        value: DICTIONARY_ACTIONS.MARK_AS_ACCEPTED
+        label: Lng.t("obd2s.actions.markAsAccepted", { locale: language }),
+        value: OBD2_ACTIONS.MARK_AS_ACCEPTED
     }]
 
     const markAsReject = [{
-        label: Lng.t("dictionaries.actions.markAsRejected", { locale: language }),
-        value: DICTIONARY_ACTIONS.MARK_AS_REJECTED
+        label: Lng.t("obd2s.actions.markAsRejected", { locale: language }),
+        value: OBD2_ACTIONS.MARK_AS_REJECTED
     }]
 
     const deleteAction = [{
-        label: Lng.t("dictionaries.actions.delete", { locale: language }),
-        value: DICTIONARY_ACTIONS.DELETE
+        label: Lng.t("obd2s.actions.delete", { locale: language }),
+        value: OBD2_ACTIONS.DELETE
     }]
 
     const actions = [
         {
-            label: Lng.t("dictionaries.actions.convertToInvoice", { locale: language }),
-            value: DICTIONARY_ACTIONS.CONVERT_TO_INVOICE
+            label: Lng.t("obd2s.actions.convertToInvoice", { locale: language }),
+            value: OBD2_ACTIONS.CONVERT_TO_INVOICE
         },
         {
-            label: Lng.t("dictionaries.actions.sendEstimate", { locale: language }),
-            value: DICTIONARY_ACTIONS.SEND
+            label: Lng.t("obd2s.actions.sendEstimate", { locale: language }),
+            value: OBD2_ACTIONS.SEND
         }
     ]
 
@@ -205,7 +205,7 @@ export const EDIT_DICTIONARY_ACTIONS = (language, markAs = '') => {
 // Endpoint Api URL
 // -----------------------------------------
 
-export const GET_DICTIONARIES_URL = (param) => `dictionaries?${queryString.stringify({
+export const GET_OBD2S_URL = (param) => `obd2s?${queryString.stringify({
     ...param,
     orderByField: 'created_at',
     orderBy: 'desc'
@@ -213,15 +213,15 @@ export const GET_DICTIONARIES_URL = (param) => `dictionaries?${queryString.strin
 
 export const GET_ITEMS_URL = (q, search, page, limit) => `items?search=${q ? q : search}&page=${page}&limit=${limit}`
 
-export const CREATE_DICTIONARY_URL = () => `dictionaries`
-export const EDIT_DICTIONARY_URL = (dictionary) => `dictionaries/${dictionary.id}`
-export const REMOVE_DICTIONARY_URL = (id) => `dictionaries/${id}`
-export const CHANGE_DICTIONARY_STATUS_URL = (action) => `dictionaries/${action}`
+export const CREATE_OBD2_URL = () => `obd2s`
+export const EDIT_OBD2_URL = (obd2) => `obd2s/${obd2.id}`
+export const REMOVE_OBD2_URL = (id) => `obd2s/${id}`
+export const CHANGE_OBD2_STATUS_URL = (action) => `obd2s/${action}`
 
 export const CREATE_ITEM_URL = () => `items`
 export const EDIT_ITEM_URL = (item_id) => `items/${item_id}`
 
-export const GET_EDIT_DICTIONARY_URL = (id) => `dictionaries/${id}/edit`
-export const GET_CREATE_DICTIONARY_URL = () => `dictionaries/create`
+export const GET_EDIT_OBD2_URL = (id) => `obd2s/${id}/edit`
+export const GET_CREATE_OBD2_URL = () => `obd2s/create`
 
-export const CONVERT_TO_INVOICE_URL = (id) => `dictionaries/${id}/convert-to-invoice`
+export const CONVERT_TO_INVOICE_URL = (id) => `obd2s/${id}/convert-to-invoice`

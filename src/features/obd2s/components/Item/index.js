@@ -34,7 +34,7 @@ import { ADD_TAX } from '../../../settings/constants';
 import { MAX_LENGTH } from '../../../../api/global';
 import { ITEM_UNITS } from '../../../more/constants';
 import { goBack, MOUNT, UNMOUNT } from '../../../../navigation/actions';
-export class DictionaryItem extends React.Component {
+export class Obd2Item extends React.Component {
     constructor(props) {
         super(props);
 
@@ -66,8 +66,8 @@ export class DictionaryItem extends React.Component {
     saveItem = (values) => {
         const {
             addItem,
-            removeDictionaryItem,
-            setDictionaryItems,
+            removeObd2Item,
+            setObd2Items,
             itemId,
             navigation,
             type,
@@ -101,7 +101,7 @@ export class DictionaryItem extends React.Component {
             addItem({
                 item,
                 onResult: () => {
-                    navigation.navigate(ROUTES.DICTIONARY)
+                    navigation.navigate(ROUTES.OBD2)
                 }
             })
         }
@@ -109,21 +109,21 @@ export class DictionaryItem extends React.Component {
         if (!itemId) {
             callback()
         } else {
-            const dictionaryItem = [{ ...item, item_id: itemId }]
+            const obd2Item = [{ ...item, item_id: itemId }]
 
             if (type === ITEM_EDIT) {
-                removeDictionaryItem({ id: itemId })
+                removeObd2Item({ id: itemId })
             }
 
-            setDictionaryItems({ dictionaryItem })
+            setObd2Items({ obd2Item })
 
-            navigation.navigate(ROUTES.DICTIONARY)
+            navigation.navigate(ROUTES.OBD2)
         }
 
     };
 
     removeItem = () => {
-        const { removeDictionaryItem, itemId, navigation, language } = this.props
+        const { removeObd2Item, itemId, navigation, language } = this.props
 
         Alert.alert(
             Lng.t("alert.title", { locale: language }),
@@ -132,8 +132,8 @@ export class DictionaryItem extends React.Component {
                 {
                     text: 'OK',
                     onPress: () => {
-                        navigation.navigate(ROUTES.DICTIONARY)
-                        removeDictionaryItem({ id: itemId })
+                        navigation.navigate(ROUTES.OBD2)
+                        removeObd2Item({ id: itemId })
                     }
                 },
                 {
@@ -389,7 +389,7 @@ export class DictionaryItem extends React.Component {
         return (
             <DefaultLayout
                 headerProps={{
-                    leftIconPress: () => navigation.navigate(ROUTES.DICTIONARY),
+                    leftIconPress: () => navigation.navigate(ROUTES.OBD2),
                     title: isCreateItem ?
                         Lng.t("header.addItem", { locale: language }) :
                         Lng.t("header.editItem", { locale: language }),

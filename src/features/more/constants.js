@@ -45,9 +45,17 @@ export const TAXES = 'reportType/TAXES';
 // -----------------------------------------
 export const MORE_MENU = (language, Lng) => {
 
-    console.log(ROUTES);
+   // console.log(ROUTES);
     return [
         {
+            title: Lng.t("more.recall_lookup", { locale: language }),
+            leftIcon: 'tools',
+            iconSize: 28,
+            fullItem: {
+                route: ROUTES.RECALL_LOOKUP_LIST
+            }
+        },
+         {
             title: Lng.t("more.automotive_dictionary", { locale: language }),
             leftIcon: 'book',
             iconSize: 28,
@@ -55,6 +63,15 @@ export const MORE_MENU = (language, Lng) => {
                 route: ROUTES.DICTIONARY_LIST
             }
         },
+        {
+            title: Lng.t("more.obd2", { locale: language }),
+            leftIcon: 'book',
+            iconSize: 28,
+            fullItem: {
+                route: ROUTES.OBD2_LIST
+            }
+        },
+
 
         {
             title: Lng.t("more.estimate", { locale: language }),

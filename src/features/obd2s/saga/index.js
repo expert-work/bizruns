@@ -3,40 +3,40 @@ import { View, Alert } from 'react-native';
 
 import Request from '../../../api/request';
 import {
-    GET_DICTIONARIES,
-    GET_CREATE_DICTIONARY,
+    GET_OBD2S,
+    GET_CREATE_OBD2,
     GET_ITEMS,
     ADD_ITEM,
-    CREATE_DICTIONARY,
+    CREATE_OBD2,
     EDIT_ITEM,
     REMOVE_ITEM,
-    GET_EDIT_DICTIONARY,
-    EDIT_DICTIONARY,
+    GET_EDIT_OBD2,
+    EDIT_OBD2,
     CONVERT_TO_INVOICE,
-    REMOVE_DICTIONARY,
-    CHANGE_DICTIONARY_STATUS,
+    REMOVE_OBD2,
+    CHANGE_OBD2_STATUS,
     // Endpoint Api URL
-    GET_DICTIONARIES_URL,
-    GET_CREATE_DICTIONARY_URL,
-    GET_EDIT_DICTIONARY_URL,
+    GET_OBD2S_URL,
+    GET_CREATE_OBD2_URL,
+    GET_EDIT_OBD2_URL,
     CREATE_ITEM_URL,
     EDIT_ITEM_URL,
-    CREATE_DICTIONARY_URL,
-    EDIT_DICTIONARY_URL,
+    CREATE_OBD2_URL,
+    EDIT_OBD2_URL,
     GET_ITEMS_URL,
     CONVERT_TO_INVOICE_URL,
-    REMOVE_DICTIONARY_URL,
-    CHANGE_DICTIONARY_STATUS_URL,
+    REMOVE_OBD2_URL,
+    CHANGE_OBD2_STATUS_URL,
 } from '../constants';
 import {
-    dictionaryTriggerSpinner,
-    setDictionaries,
+    obd2TriggerSpinner,
+    setObd2s,
     setItems,
-    setDictionaryItems,
-    removeDictionaryItem,
-    removeDictionaryItems,
-    setDictionary,
-    removeFromDictionaries
+    setObd2Items,
+    removeObd2Item,
+    removeObd2Items,
+    setObd2,
+    removeFromObd2s
 } from '../actions';
 import { store } from '../../../store';
 import { setInvoices } from '../../invoices/actions';
@@ -45,7 +45,7 @@ import { alertMe } from '../../../api/global';
 import { getTitleByLanguage } from '../../../navigation/actions';
 
 
-function* getDictionaries(payloadData) {
+function* getObd2s(payloadData) {
      const {
         payload: {
             onResult = null,
@@ -57,7 +57,7 @@ function* getDictionaries(payloadData) {
         } = {},
     } = payloadData;
 
-    yield put(dictionaryTriggerSpinner({ dictionariesLoading: true }));
+    yield put(obd2TriggerSpinner({ obd2sLoading: true }));
 
     try {
 
@@ -68,7 +68,7 @@ function* getDictionaries(payloadData) {
             limit
         }
         const options = {
-            path: GET_DICTIONARIES_URL(param),
+            path: GET_OBD2S_URL(param),
         };
 
         console.log(options.path);
@@ -78,75 +78,75 @@ function* getDictionaries(payloadData) {
                 console.log(response);
                  console.log('responseend');
 
-        yield put(setDictionaries({ dictionaries: response.dictionaries.data, fresh }));
-         onMeta && onMeta(response.dictionaries);
+        yield put(setObd2s({ obd2s: response.obd2s.data, fresh }));
+         onMeta && onMeta(response.obd2s);
 
         onResult && onResult(true);
 
     } catch (error) {
-        Alert.alert('options.path');
+//        Alert.alert('options.path');
         onResult && onResult(false);
     } finally {
-        yield put(dictionaryTriggerSpinner({ dictionariesLoading: false }));
+        yield put(obd2TriggerSpinner({ obd2sLoading: false }));
     }
 }
 
-function* getCreateDictionary(payloadData) {
+function* getCreateObd2(payloadData) {
  
     const {
         payload: { onResult },
     } = payloadData;
 
-    yield put(dictionaryTriggerSpinner({ initDictionaryLoading: true }));
+    yield put(obd2TriggerSpinner({ initObd2Loading: true }));
 
     try {
 
 
         const options = {
-            path: GET_CREATE_DICTIONARY_URL(),
+            path: GET_CREATE_OBD2_URL(),
         };
 
         const response = yield call([Request, 'get'], options);
 
-        yield put(setDictionary(response));
+        yield put(setObd2(response));
 
         onResult && onResult(response);
 
     } catch (error) {
         // console.log(error);
     } finally {
-        yield put(dictionaryTriggerSpinner({ initDictionaryLoading: false }));
+        yield put(obd2TriggerSpinner({ initObd2Loading: false }));
     }
 }
 
-function* getEditDictionary(payloadData) {
+function* getEditObd2(payloadData) {
  
     const {
         payload: { id, onResult },
     } = payloadData;
 
-    yield put(dictionaryTriggerSpinner({ initDictionaryLoading: true }));
+    yield put(obd2TriggerSpinner({ initObd2Loading: true }));
 
     try {
 
         const options = {
-            path: GET_EDIT_DICTIONARY_URL(id),
+            path: GET_EDIT_OBD2_URL(id),
         };
 
         const response = yield call([Request, 'get'], options);
 
-        yield put(setDictionary(response));
+        yield put(setObd2(response));
 
-        yield put(removeDictionaryItems());
+        yield put(removeObd2Items());
 
-        yield put(setDictionaryItems({ dictionaryItem: response.dictionary.items }));
+        yield put(setObd2Items({ obd2Item: response.obd2.items }));
 
-        onResult && onResult(response.dictionary);
+        onResult && onResult(response.obd2);
 
     } catch (error) {
         // console.log(error);
     } finally {
-        yield put(dictionaryTriggerSpinner({ initDictionaryLoading: false }));
+        yield put(obd2TriggerSpinner({ initObd2Loading: false }));
     }
 }
 
@@ -159,7 +159,7 @@ function* addItem(payloadData) {
         },
     } = payloadData;
 
-    yield put(dictionaryTriggerSpinner({ createDictionaryItemLoading: true }));
+    yield put(obd2TriggerSpinner({ createObd2ItemLoading: true }));
 
     try {
 
@@ -178,20 +178,20 @@ function* addItem(payloadData) {
 
         const response = yield call([Request, 'post'], options);
 
-        const dictionaryItem = [{
+        const obd2Item = [{
             ...response.item,
             item_id: response.item.id,
             ...item
         }]
 
-        yield put(setDictionaryItems({ dictionaryItem }));
+        yield put(setObd2Items({ obd2Item }));
 
         onResult && onResult()
 
     } catch (error) {
         // console.log(error);
     } finally {
-        yield put(dictionaryTriggerSpinner({ createDictionaryItemLoading: false }));
+        yield put(obd2TriggerSpinner({ createObd2ItemLoading: false }));
     }
 }
 
@@ -204,7 +204,7 @@ function* editItem(payloadData) {
         },
     } = payloadData;
 
-    yield put(dictionaryTriggerSpinner({ dictionaryLoading: true }));
+    yield put(obd2TriggerSpinner({ obd2Loading: true }));
 
     try {
 
@@ -221,48 +221,48 @@ function* editItem(payloadData) {
 
         const response = yield call([Request, 'put'], options);
 
-        const dictionaryItem = [{
+        const obd2Item = [{
             ...response.item,
             ...item,
         }]
 
-        yield put(removeDictionaryItem({ id: dictionaryItem.id }));
+        yield put(removeObd2Item({ id: obd2Item.id }));
 
-        yield put(setDictionaryItems({ dictionaryItem }));
+        yield put(setObd2Items({ obd2Item }));
 
         onResult && onResult()
 
     } catch (error) {
         // console.log(error);
     } finally {
-        yield put(dictionaryTriggerSpinner({ dictionaryLoading: false }));
+        yield put(obd2TriggerSpinner({ obd2Loading: false }));
     }
 }
 
-function* createDictionary(payloadData) {
+function* createObd2(payloadData) {
  
     const {
         payload: {
-            dictionary,
+            obd2,
             onResult,
         },
     } = payloadData;
 
-    yield put(dictionaryTriggerSpinner({ dictionaryLoading: true }));
+    yield put(obd2TriggerSpinner({ obd2Loading: true }));
 
     try {
 
         const options = {
-            path: CREATE_DICTIONARY_URL(),
-            body: dictionary,
+            path: CREATE_OBD2_URL(),
+            body: obd2,
         };
 
         const response = yield call([Request, 'post'], options);
 
         if (!(response.error)) {
-            yield put(removeDictionaryItems())
+            yield put(removeObd2Items())
 
-            yield put(setDictionaries({ dictionaries: [response.dictionary], prepend: true }));
+            yield put(setObd2s({ obd2s: [response.obd2], prepend: true }));
 
             onResult && onResult(response.url)
         }
@@ -270,39 +270,39 @@ function* createDictionary(payloadData) {
     } catch (error) {
         // console.log(error);
     } finally {
-        yield put(dictionaryTriggerSpinner({ dictionaryLoading: false }));
+        yield put(obd2TriggerSpinner({ obd2Loading: false }));
     }
 }
 
-function* detailDictionary(payloadData) {
+function* detailObd2(payloadData) {
       const {
         payload: {
-            dictionary,
+            obd2,
             onResult,
         },
     } = payloadData;
 
-    yield put(dictionaryTriggerSpinner({ dictionaryLoading: true }));
+    yield put(obd2TriggerSpinner({ obd2Loading: true }));
 
     try {
 
         const options = {
-            path: EDIT_DICTIONARY_URL(dictionary),
-            body: dictionary
+            path: EDIT_OBD2_URL(obd2),
+            body: obd2
         };
 
         const response = yield call([Request, 'put'], options);
 
-        yield put(removeFromDictionaries({ id: dictionary.id }))
+        yield put(removeFromObd2s({ id: obd2.id }))
 
-        yield put(setDictionaries({ dictionaries: [response.dictionary], prepend: true }));
+        yield put(setObd2s({ obd2s: [response.obd2], prepend: true }));
 
         onResult && onResult(response.url)
 
     } catch (error) {
         // console.log(error);
     } finally {
-        yield put(dictionaryTriggerSpinner({ dictionaryLoading: false }));
+        yield put(obd2TriggerSpinner({ obd2Loading: false }));
     }
 }
 
@@ -319,7 +319,7 @@ function* getItems(payloadData) {
         },
     } = payloadData;
 
-    yield put(dictionaryTriggerSpinner({ itemsLoading: true }));
+    yield put(obd2TriggerSpinner({ itemsLoading: true }));
 
     try {
 
@@ -338,7 +338,7 @@ function* getItems(payloadData) {
         // console.log(error);
         onResult && onResult(response.items);
     } finally {
-        yield put(dictionaryTriggerSpinner({ itemsLoading: false }));
+        yield put(obd2TriggerSpinner({ itemsLoading: false }));
     }
 }
 
@@ -351,18 +351,18 @@ function* removeItem(payloadData) {
         },
     } = payloadData;
 
-    yield put(dictionaryTriggerSpinner({ removeItemLoading: true }));
+    yield put(obd2TriggerSpinner({ removeItemLoading: true }));
 
     try {
 
 
-        yield put(removeDictionaryItem({ id }));
+        yield put(removeObd2Item({ id }));
 
         onResult && onResult();
     } catch (error) {
         // console.log(error);
     } finally {
-        yield put(dictionaryTriggerSpinner({ removeItemLoading: false }));
+        yield put(obd2TriggerSpinner({ removeItemLoading: false }));
     }
 }
 
@@ -375,7 +375,7 @@ function* convertToInvoice(payloadData) {
         },
     } = payloadData;
 
-    yield put(dictionaryTriggerSpinner({ dictionaryLoading: true }));
+    yield put(obd2TriggerSpinner({ obd2Loading: true }));
 
     try {
 
@@ -385,7 +385,7 @@ function* convertToInvoice(payloadData) {
 
         const response = yield call([Request, 'post'], options);
 
-        yield put(removeDictionaryItems())
+        yield put(removeObd2Items())
 
         yield put(setInvoices({ invoices: [response.invoice], prepend: true }));
 
@@ -394,11 +394,11 @@ function* convertToInvoice(payloadData) {
     } catch (error) {
         // console.log(error);
     } finally {
-        yield put(dictionaryTriggerSpinner({ dictionaryLoading: false }));
+        yield put(obd2TriggerSpinner({ obd2Loading: false }));
     }
 }
 
-function* removeDictionary(payloadData) {
+function* removeObd2(payloadData) {
  
     const {
         payload: {
@@ -407,27 +407,27 @@ function* removeDictionary(payloadData) {
         },
     } = payloadData;
 
-    yield put(dictionaryTriggerSpinner({ dictionaryLoading: true }));
+    yield put(obd2TriggerSpinner({ obd2Loading: true }));
 
     try {
 
         const options = {
-            path: REMOVE_DICTIONARY_URL(id),
+            path: REMOVE_OBD2_URL(id),
         };
 
         yield call([Request, 'delete'], options);
 
-        yield put(removeFromDictionaries({ id }))
+        yield put(removeFromObd2s({ id }))
 
         onResult && onResult();
     } catch (error) {
         // console.log(error);
     } finally {
-        yield put(dictionaryTriggerSpinner({ dictionaryLoading: false }));
+        yield put(obd2TriggerSpinner({ obd2Loading: false }));
     }
 }
 
-function* changeDictionaryStatus(payloadData) {
+function* changeObd2Status(payloadData) {
  
     const {
         payload: {
@@ -438,20 +438,20 @@ function* changeDictionaryStatus(payloadData) {
         },
     } = payloadData;
 
-    yield put(dictionaryTriggerSpinner({ dictionaryLoading: true }));
+    yield put(obd2TriggerSpinner({ obd2Loading: true }));
 
     try {
 
         const options = {
-            path: CHANGE_DICTIONARY_STATUS_URL(action),
+            path: CHANGE_OBD2_STATUS_URL(action),
             body: { id }
         };
 
         const response = yield call([Request, 'post'], options);
 
         if (response.success) {
-            navigation.navigate(ROUTES.DICTIONARY_LIST)
-            yield call(getDictionaries, payload = {});
+            navigation.navigate(ROUTES.OBD2_LIST)
+            yield call(getObd2s, payload = {});
         }
         else {
             response.error === 'user_email_does_not_exist' && alertMe({ desc: getTitleByLanguage('alert.action.emailNotExist') })
@@ -462,21 +462,21 @@ function* changeDictionaryStatus(payloadData) {
     } catch (error) {
         // console.log(error);
     } finally {
-        yield put(dictionaryTriggerSpinner({ dictionaryLoading: false }));
+        yield put(obd2TriggerSpinner({ obd2Loading: false }));
     }
 }
 
-export default function* dictionarySaga() {
-    yield takeEvery(GET_DICTIONARIES, getDictionaries);
-    yield takeEvery(GET_CREATE_DICTIONARY, getCreateDictionary);
-    yield takeEvery(GET_EDIT_DICTIONARY, getEditDictionary);
+export default function* obd2Saga() {
+    yield takeEvery(GET_OBD2S, getObd2s);
+    yield takeEvery(GET_CREATE_OBD2, getCreateObd2);
+    yield takeEvery(GET_EDIT_OBD2, getEditObd2);
     yield takeEvery(ADD_ITEM, addItem);
     yield takeEvery(GET_ITEMS, getItems);
-    yield takeEvery(CREATE_DICTIONARY, createDictionary);
-    yield takeEvery(EDIT_DICTIONARY, detailDictionary);
+    yield takeEvery(CREATE_OBD2, createObd2);
+    yield takeEvery(EDIT_OBD2, detailObd2);
     yield takeEvery(EDIT_ITEM, editItem);
     yield takeEvery(REMOVE_ITEM, removeItem);
     yield takeEvery(CONVERT_TO_INVOICE, convertToInvoice);
-    yield takeEvery(CHANGE_DICTIONARY_STATUS, changeDictionaryStatus);
-    yield takeEvery(REMOVE_DICTIONARY, removeDictionary);
+    yield takeEvery(CHANGE_OBD2_STATUS, changeObd2Status);
+    yield takeEvery(REMOVE_OBD2, removeObd2);
 }

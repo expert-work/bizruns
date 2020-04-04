@@ -1,14 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { DictionaryItem } from '../../components/Item';
+import { Obd2Item } from '../../components/Item';
 import { reduxForm, getFormValues } from 'redux-form';
 import { validate } from './validation';
-import * as DictionariesAction from '../../actions';
+import * as Obd2sAction from '../../actions';
 import { ITEM_FORM } from '../../constants';
 
 const mapStateToProps = (state, { navigation }) => {
     const {
-        dictionaries: { loading },
+        obd2s: { loading },
         global: { language, taxTypes },
     } = state;
 
@@ -42,26 +42,26 @@ const mapStateToProps = (state, { navigation }) => {
 };
 
 const mapDispatchToProps = {
-    addItem: DictionariesAction.addItem,
-    setDictionaryItems: DictionariesAction.setDictionaryItems,
-    removeDictionaryItem: DictionariesAction.removeDictionaryItem,
+    addItem: Obd2sAction.addItem,
+    setObd2Items: Obd2sAction.setObd2Items,
+    removeObd2Item: Obd2sAction.removeObd2Item,
 };
 
 //  Redux Forms
 const addItemReduxForm = reduxForm({
     form: ITEM_FORM,
     validate,
-})(DictionaryItem);
+})(Obd2Item);
 
 //  connect
-const DictionaryItemContainer = connect(
+const Obd2ItemContainer = connect(
     mapStateToProps,
     mapDispatchToProps,
 )(addItemReduxForm);
 
-DictionaryItemContainer.navigationOptions = () => ({
+Obd2ItemContainer.navigationOptions = () => ({
     header: null,
 });
 
-export default DictionaryItemContainer;
+export default Obd2ItemContainer;
 

@@ -84,7 +84,7 @@ function* getDictionaries(payloadData) {
         onResult && onResult(true);
 
     } catch (error) {
-        Alert.alert('options.path');
+       // Alert.alert('options.path');
         onResult && onResult(false);
     } finally {
         yield put(dictionaryTriggerSpinner({ dictionariesLoading: false }));

@@ -101,8 +101,8 @@ console.log('idstart');
                 }}
              >
                 <View style={styles.bodyContainer}>
-                <Text style={{fontSize:32, fontWaight:600, marginTop:50,marginBottom:10}}>{this.state.name}</Text>
-                 <Text style={{fontSize:24, fontWaight:300,color:'gray'}}>{this.state.description}</Text>
+                <Text style={{fontSize:32, marginTop:50,marginBottom:10}}>{this.state.name}</Text>
+                 <Text style={{fontSize:24,color:'gray'}}>{this.state.description}</Text>
                 </View>
             </DefaultLayout>
         );
