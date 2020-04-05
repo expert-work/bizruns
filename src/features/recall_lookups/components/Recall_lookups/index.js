@@ -351,7 +351,11 @@ export class Recall_lookups extends React.Component<IProps> {
                         title: Lng.t("header.recall_lookups", { locale: language }),
                         titleStyle: styles.headerTitle,
                         placement: "center",
-                        hasRightButton:false
+                        rightIcon: null,
+                        rightIconProps: {
+                             background: 'red',
+                         },
+                        rightIconPress: null
                     }}
                     onSearch={this.onSearch}
                     hasRightButton={false}

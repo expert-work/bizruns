@@ -33,9 +33,9 @@ export default function* rootSaga() {
         } else {
             const { endpointApi, endpointURL } = reduxStore.global
 
-            if (!endpointApi || !endpointURL) {
-                yield put(NavigationActions.navigate({ routeName: ROUTES.ENDPOINTS }));
-            }
+            // if (!endpointApi || !endpointURL) {
+            //     yield put(NavigationActions.navigate({ routeName: ROUTES.ENDPOINTS }));
+            // }
 
         }
 

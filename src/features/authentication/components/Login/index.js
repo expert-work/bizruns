@@ -7,11 +7,12 @@ import {
     View,
     KeyboardAvoidingView,
     Text,
-    TouchableOpacity
+    TouchableOpacity,
+    Platform
 } from 'react-native';
 import { Field } from 'redux-form';
 import styles from './styles';
-import { InputField, CtButton, AssetImage, CtDivider, CtGradientButton } from '../../../../components';
+import { InputField, CtButton,CtHeader, AssetImage, CtDivider, CtGradientButton } from '../../../../components';
 // import * as Google from 'expo-google-app-auth';
 import { env, IMAGES } from '../../../../config';
 import { colors } from '../../../../styles/colors';
@@ -79,12 +80,27 @@ export class Login extends React.Component<IProps> {
 
             <View style={styles.container}>
 
+
+
+
+
+            <CtHeader
+                leftIcon="angle-left"
+                leftIconPress={() => navigation.goBack(null)}
+                title={Lng.t("header.back", { locale: language })}
+                titleOnPress={() => navigation.goBack(null)}
+                titleStyle={{ marginLeft: -10, marginTop: Platform.OS === 'ios' ? -1 : 2 }}
+                placement="left"
+                noBorder
+                transparent
+                style={{marginLeft:-50 }}
+            />
                 <StatusBar
                     barStyle="dark-content"
                     hidden={false}
                     translucent={true}
                 />
-
+             
                 <ScrollView
                     style={{ paddingTop: '34%' }}
                     bounces={false}

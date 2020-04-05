@@ -3,6 +3,9 @@
 // -----------------------------------------
 export const LOGIN_FORM = 'auth/LOGIN_FORM';
 export const FORGOT_PASSWORD_FORM = 'auth/FORGOT_PASSWORD_FORM';
+export const REGISTER_FORM = 'auth/REGISTER_FORM';
+export const MAINSCREEN_FORM = 'auth/MAINSCREEN_FORM';
+
 export const SET_ENDPOINT_API = 'auth/SET_ENDPOINT_API';
 
 // Actions

@@ -3,6 +3,10 @@ export const ROUTES = {
     LOGIN: 'LOGIN',
     FORGOT_PASSWORD: 'FORGOT_PASSWORD',
     ENDPOINTS: 'ENDPOINTS',
+    REGISTER:'REGISTER',
+    MAINSCREEN:'MAINSCREEN',
+
+
 
     // Main Bottom Tabs
     // -----------------------------------------

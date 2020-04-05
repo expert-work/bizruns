@@ -1,5 +1,8 @@
 import { createStackNavigator } from "react-navigation";
 import LoginContainer from '../../features/authentication/containers/Login';
+import RegisterContainer from '../../features/authentication/containers/Register';
+import MainScreenContainer from '../../features/authentication/containers/MainScreen';
+
 import ForgotPasswordContainer from '../../features/authentication/containers/ForgetPassword';
 import EndpointContainer from "../../features/authentication/containers/Endpoint";
 import { ROUTES } from "../routes";
@@ -10,6 +13,16 @@ export default createStackNavigator(
         [ROUTES.LOGIN]: {
             screen: LoginContainer
         },
+
+
+        [ROUTES.REGISTER]: {
+            screen: RegisterContainer
+        },
+
+        [ROUTES.MAINSCREEN]: {
+            screen: MainScreenContainer
+        },
+
         [ROUTES.FORGOT_PASSWORD]: {
             screen: ForgotPasswordContainer
         },
@@ -23,7 +36,7 @@ export default createStackNavigator(
 
     },
     {
-        initialRouteName: ROUTES.LOGIN,
+        initialRouteName: ROUTES.MAINSCREEN,
         navigationOptions: {
             header: null,
             headerTransparent: true,
