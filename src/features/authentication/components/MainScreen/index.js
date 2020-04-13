@@ -230,7 +230,7 @@ export class MainScreen extends React.Component<IProps> {
                                         fontSize:20,
                                         paddingLeft : 10,
                                         paddingRight : 10,
-                                        fontWeight:600,
+                                        fontWeight:'600',
                                   }}>LOG IN</Text>
                           </TouchableOpacity>
 
@@ -256,7 +256,7 @@ export class MainScreen extends React.Component<IProps> {
                                      paddingLeft : 10,
                                      paddingRight : 10,
                                      fontSize:20,
-                                     fontWeight:600,
+                                     fontWeight:'600',
                                }}>SIGN UP</Text>
                        </TouchableOpacity>
                              </View>

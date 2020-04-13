@@ -18,7 +18,12 @@ import { Recall_lookup_makeNavigator } from "./recall_lookup_makes";
 import { Recall_lookup_modelNavigator } from "./recall_lookup_models";
 
 import { Recall_lookup_componentNavigator } from "./recall_lookup_components";
+import { Estimate_searchNavigator } from "./estimate_searchs";
+import { Estimate_search_makeNavigator } from "./estimate_search_makes";
 
+import { Estimate_search_modelNavigator } from "./estimate_search_models";
+
+import { Estimate_search_repairNavigator } from "./estimate_search_repairs";
 
 
 import { MoreNavigator } from "./more";
@@ -67,6 +72,14 @@ const appNavigator = createStackNavigator(
         ...Recall_lookup_modelNavigator,
 
         ...Recall_lookup_componentNavigator,
+
+        ...Estimate_searchNavigator,
+
+        ...Estimate_search_makeNavigator,
+
+        ...Estimate_search_modelNavigator,
+
+        ...Estimate_search_repairNavigator
     },
     {
         initialRouteName: ROUTES.AUTH,

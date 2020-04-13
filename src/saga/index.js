@@ -14,7 +14,11 @@ import recall_lookups from '../features/recall_lookups/saga';
 import recall_lookup_makes from '../features/recall_lookup_makes/saga';
 import recall_lookup_models from '../features/recall_lookup_models/saga';
 import recall_lookup_components from '../features/recall_lookup_components/saga';
-
+import estimate_searchs from '../features/estimate_searchs/saga';
+import estimate_search_makes from '../features/estimate_search_makes/saga';
+import estimate_search_models from '../features/estimate_search_models/saga';
+import estimate_search_repairs from '../features/estimate_search_repairs/saga';
+     
 import more from '../features/more/saga';
 import { ROUTES } from '../navigation/routes';
 import { store } from '../store';
@@ -50,10 +54,14 @@ export default function* rootSaga() {
             settings(),
             dictionaries(),
             obd2s(),
+            estimate_searchs(),
             recall_lookup_components(),
             recall_lookup_models(),
             recall_lookup_makes(),
-            recall_lookups()
+            recall_lookups(),
+            estimate_search_models(),
+            estimate_search_repairs(),
+            estimate_search_makes()
         ]);
     });
 }

@@ -47,6 +47,14 @@ export const MORE_MENU = (language, Lng) => {
 
    // console.log(ROUTES);
     return [
+            {
+            title: Lng.t("more.estimate_search", { locale: language }),
+            leftIcon: 'search',
+            iconSize: 28,
+            fullItem: {
+                route: ROUTES.ESTIMATE_SEARCH_LIST
+            }
+        },
         {
             title: Lng.t("more.recall_lookup", { locale: language }),
             leftIcon: 'tools',

@@ -34,7 +34,11 @@
         "recall_lookup_makes":"Recall Lookup Make",
         "recall_lookup_models":"Recall Lookup Model",
         "recall_lookup_components":"Total Recall",
-        "setting": {
+        "estimate_searchs":"Recall Lookup",
+        "estimate_search_makes":"Recall Lookup",
+        "estimate_search_models":"Recall Lookup",
+        "estimate_search_repairs":"Recall Lookup Repairs",
+        "setting": {  
             "company": "Company Information",
             "account": "Account Settings",
             "preferences": "Preferences",
@@ -245,7 +249,8 @@
         "reports": "Reports",
         "settings": "Settings",
         "logout": "Logout",
-        "recall_lookup":"Recall Lookups"
+        "recall_lookup":"Recall Lookups",
+        "estimate_search":"Estimate Search"
     },
     "categories": {
         "title": "Category Name",
@@ -362,7 +367,11 @@
             "YEARS": "Years",
             },
     },
-
+  "estimate_searchs":{
+          "tabs": {
+            "YEARS": "Years",
+            },
+    },
   "recall_lookup_components":{
           "tabs": {
             "ALL": "Components",
@@ -375,10 +384,25 @@
             "MAKE": "Make",
             },
     },
+  "estimate_search_makes":{
+          "tabs": {
+            "MAKES": "Make",
+            },
+    },
 
   "recall_lookup_models":{
           "tabs": {
             "MODEL": "Model",
+            },
+    },
+    "estimate_search_models":{
+          "tabs": {
+            "MODELS": "Model",
+            },
+    },
+    "estimate_search_repairs":{
+          "tabs": {
+            "ALL": "Repairs",
             },
     },
 

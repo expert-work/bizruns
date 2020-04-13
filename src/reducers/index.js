@@ -13,6 +13,10 @@ import recall_lookups from '../features/recall_lookups/reducers';
 import recall_lookup_makes from '../features/recall_lookup_makes/reducers';
 import recall_lookup_models from '../features/recall_lookup_models/reducers';
 import recall_lookup_components from '../features/recall_lookup_components/reducers';
+import estimate_searchs from '../features/estimate_searchs/reducers';
+import estimate_search_makes from '../features/estimate_search_makes/reducers';
+import estimate_search_models from '../features/estimate_search_models/reducers';
+import estimate_search_repairs from '../features/estimate_search_repairs/reducers';
 
 
 import global from './global';
@@ -34,8 +38,12 @@ export default combineReducers({
     recall_lookup_makes,
     recall_lookup_models,
     recall_lookup_components,
+    estimate_searchs,
     expenses,
     payments,
+    estimate_search_makes,
+    estimate_search_models,
+    estimate_search_repairs,
     navigationData,
     form: formReducer,
     global,

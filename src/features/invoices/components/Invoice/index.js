@@ -872,6 +872,17 @@ export class Invoice extends React.Component<IProps> {
                     />
 
                     <Field
+                        name="job_name"
+                        component={InputField}
+                        hint={'Job Name'}
+                        inputProps={{
+                            returnKeyType: 'next',
+                            autoCapitalize: 'none',
+                            autoCorrect: true,
+                        }}
+                    />
+
+                    <Field
                         name="user_id"
                         items={customers}
                         apiSearch
